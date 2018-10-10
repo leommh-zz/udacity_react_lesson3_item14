@@ -1,9 +1,21 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
-const DeleteButton = props => (
-	<button onClick={props.deleteLastItem} disabled={props.noItemsFound()}>
-       Delete Last Item
-    </button>
-)
+//Component Button
+const DeleteButton = props => {
+	const {deleteLastItem, noItemsFound} = props
+
+  	return (
+    	<button onClick={deleteLastItem} disabled={noItemsFound()}>
+         	Delete Last Item
+      	</button>
+  	)
+}
+
+//PropTypes
+DeleteButton.propTypes = {
+	deleteLastItem: PropTypes.func.isRequired,
+  	noItemsFound: PropTypes.func.isRequired,
+}
 
 export default DeleteButton;
